@@ -1,0 +1,7 @@
+{
+    "flake8.enabled": true,
+    "flake8.importStrategy": "fromEnvironment",
+    "mypy-type-checker.enabled": true,
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "python.languageServer": "Pylance"
+}
