@@ -6,8 +6,16 @@ class Plant:
         age: int,
     ) -> None:
         self._name = name
-        self._height = height
-        self._age = age
+        if height < 0:
+            print(self._name + ": Error, height cannot be negative.")
+            self._height = 0.0
+        else:
+            self._height = height
+        if age < 0:
+            print(self._name + ": Error, age cannot be negative.")
+            self._age = 0
+        else:
+            self._age = age
 
     def set_height(self, height: float) -> None:
         if height < 0:
