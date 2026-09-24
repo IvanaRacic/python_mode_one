@@ -36,6 +36,9 @@ class Plant:
         self._age_days = self._age_days + days
         self._stats.record_age()
 
+    def display_stats(self) -> None:
+        self._stats.display()
+
     class Stats:
         def __init__(self) -> None:
             self._grow = 0
@@ -55,7 +58,7 @@ class Plant:
         def record_shade(self) -> None:
             self._shade = self._shade + 1
 
-        def display(self, with_shade: bool = False) -> None:
+        def display(self) -> None:
             print(
                 "Stats:",
                 self._grow,
@@ -65,8 +68,9 @@ class Plant:
                 self._show,
                 "show",
             )
-            if with_shade:
-                print(self._shade, "shade")
+
+        def display_shade(self) -> None:
+            print(self._shade, "shade")
 
 
 class Flower(Plant):
@@ -127,6 +131,10 @@ class Tree(Plant):
             "cm",
         )
 
+    def display_stats(self) -> None:
+        self._stats.display()
+        self._stats.display_shade()
+
 
 class Seed(Flower):
     def __init__(
@@ -149,7 +157,7 @@ class Seed(Flower):
 
 
 def display_statistics(plant: Plant) -> None:
-    plant._stats.display(with_shade=isinstance(plant, Tree))
+    plant.display_stats()
 
 
 if __name__ == "__main__":
